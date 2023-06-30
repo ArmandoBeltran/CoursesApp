@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:src="@drawable/login_profile_user"
+        android:translationY="105dp"
+        />
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/login_email"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Ingrese su email"
+           android:layout_marginLeft="80dp"
+           android:layout_marginTop="120dp"
+           app:counterOverflowTextColor="@color/md_theme_light_onPrimaryContainer">
+           <com.google.android.material.textfield.TextInputEditText
+               android:layout_width="250dp"
+               android:layout_height="wrap_content"/>
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/login_password"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="80dp"
+           android:layout_marginTop="195dp"
+           android:hint="Contraseña">
+           <com.google.android.material.textfield.TextInputEditText
+               android:layout_width="250dp"
+               android:layout_height="wrap_content"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/login_button"
+           android:layout_width="160dp"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="125dp"
+           android:layout_marginTop="280dp"
+           android:text="Login"
+
+           />
+
+       <TextView
+           android:id="@+id/login_signup"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="¿No tienes cuenta?"
+           android:autoLink="web"
+           android:linksClickable="true"
+           android:layout_marginLeft="145dp"
+           android:layout_marginTop="330dp"
+           android:textColor="#3F51B5"/>
+   </RelativeLayout>
+
+
+</LinearLayout>
