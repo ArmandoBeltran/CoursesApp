@@ -1,14 +1,25 @@
 package com.example.coursesapp
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 
 
-class SignUpActivity: ComponentActivity() {
+class SignUpFragment: Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_sign_up, container, false)
+    }
 
-        setContentView(R.layout.activity_sign_up)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
     }
 }
