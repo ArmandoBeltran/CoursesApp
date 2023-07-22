@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
 
-class SignUpFragment: Fragment() {
+class SignUpActivity: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
