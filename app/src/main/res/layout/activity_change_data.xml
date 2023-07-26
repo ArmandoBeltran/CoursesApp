@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -21,24 +19,52 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese su usuario"
+            android:hint="Ingrese su email"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="120dp"
             app:counterOverflowTextColor="@color/md_theme_light_onPrimaryContainer">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_user"
+                android:id="@+id/change_user"
                 android:layout_width="250dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese su usuario"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="195dp"
+            app:counterOverflowTextColor="@color/md_theme_light_onPrimaryContainer">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/change_email"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="195dp"
+            android:layout_marginTop="270dp"
             android:hint="Contraseña">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_password"
+                android:id="@+id/change_password"
+                android:inputType="textPassword"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="345dp"
+            android:hint="Confirme su contraseña">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/change_confirm_password"
                 android:inputType="textPassword"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"/>
@@ -46,32 +72,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_button"
+            android:id="@+id/change_button"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="125dp"
-            android:layout_marginTop="280dp"
-            android:text="Login"
+            android:layout_marginTop="435dp"
+            android:text="Cambiar datos"
 
             />
 
-        <TextView
-            android:id="@+id/login_signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="¿No tienes cuenta?"
-            android:autoLink="web"
-            android:linksClickable="true"
-            android:layout_marginLeft="145dp"
-            android:layout_marginTop="330dp"
-            android:textColor="#3F51B5"/>
-
     </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/login_fragment_signup"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
 
 </LinearLayout>
