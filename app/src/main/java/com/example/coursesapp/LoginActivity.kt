@@ -40,9 +40,7 @@ class LoginActivity: ComponentActivity() {
         }
 
         btn_login.setOnClickListener {
-            val intentList = Intent(applicationContext, CoursesListActivity::class.java)
-            startActivity(intentList)
-            //log_in()
+            log_in()
         }
     }
 
@@ -60,10 +58,10 @@ class LoginActivity: ComponentActivity() {
                 if(response.isSuccessful) {
                     val loginResponse = response.body()
                     if (loginResponse?.token != null){
-                        key = "token"
-                        value = loginResponse?.token!!
+                        key = "name"
+                        value = loginResponse?.name!!
                         saveOnCache(applicationContext, key, value)
-                        val intentList = Intent(applicationContext, ChangeDataActivity::class.java)
+                        val intentList = Intent(applicationContext, CoursesListActivity::class.java)
                         startActivity(intentList)
                     }else{
                         Toast.makeText(applicationContext, "Credenciales incorrectas", Toast.LENGTH_LONG).show()

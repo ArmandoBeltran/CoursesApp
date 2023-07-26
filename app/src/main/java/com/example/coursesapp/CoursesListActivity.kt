@@ -1,6 +1,6 @@
 package com.example.coursesapp
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
@@ -14,13 +14,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class CoursesListActivity: ComponentActivity() {
+class CoursesListActivity: ComponentActivity(){
     private lateinit var auth : FirebaseAuth
     private lateinit var database : FirebaseDatabase
 
     lateinit var lv_courses_list : ListView
 
-    var courses_array : ArrayList<Course> = ArrayList()
+    private lateinit var courses_array : ArrayList<Course>
     var adapter : CourseListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,18 +28,13 @@ class CoursesListActivity: ComponentActivity() {
 
         setContentView(R.layout.activity_courses_list)
 
+        courses_array = ArrayList()
+
         lv_courses_list = findViewById(R.id.courses_list)
+        adapter = CourseListAdapter(applicationContext, courses_array)
+        lv_courses_list.adapter = adapter
 
         auth = FirebaseAuth.getInstance()
-
-        database = FirebaseDatabase.getInstance()
-
-        getSessions()
-    }
-
-    override fun onStart(){
-        super.onStart()
-
         val currentUser : FirebaseUser? = auth.currentUser
         if (currentUser != null){
             if (currentUser.email != ""){
@@ -50,6 +45,19 @@ class CoursesListActivity: ComponentActivity() {
         } else {
             login("beltran.armando2210@gmail.com", "123456789")
         }
+        database = FirebaseDatabase.getInstance()
+
+
+        getSessions()
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        var name = readCache(this, "name")
+        Toast.makeText(this, "Bienvenido ${name}", Toast.LENGTH_LONG).show()
     }
 
     fun login(email : String, password : String){
@@ -82,16 +90,12 @@ class CoursesListActivity: ComponentActivity() {
 
     fun getSessions() {
         val reference = database.getReference("sessions")
-        adapter = CourseListAdapter(applicationContext, courses_array)
-        lv_courses_list.adapter = adapter
 
         reference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (data in snapshot.children) {
                     val session = data.getValue(Session::class.java)
-                    Log.d("Name", session?.name.toString())
-                    Log.d("Percentage", session?.percentage.toString())
-                    courses_array.add(Course("test", 1))
+                    courses_array.add(Course(session?.description.toString(), session?.name.toString(), session?.percentage!!))
                 }
 
                 adapter!!.notifyDataSetChanged()
@@ -101,5 +105,10 @@ class CoursesListActivity: ComponentActivity() {
                 println("Error al leer datos: ${error.message}")
             }
         })
+    }
+
+    fun readCache(context: Context, key: String): String? {
+        val sharedPreferences = context.getSharedPreferences("cache", Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key, null)
     }
 }

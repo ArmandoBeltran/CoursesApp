@@ -4,15 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
-    <com.google.android.material.card.MaterialCardView
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20px"
-        android:clickable="true"
-        android:focusable="true"
-        android:checkable="true"
-        style="@style/Widget.Material3.CardView.Elevated">
+        app:cardElevation="50px"
+        >
         <TextView
             android:id="@+id/item_course_name"
             android:layout_width="wrap_content"
@@ -22,41 +20,16 @@
             android:layout_margin="50px"
             />
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="100px"
-            android:layout_height="60px"
-            android:focusable="true"
-            android:checkable="true"
-            android:backgroundTint="#939393"
-            android:layout_gravity="center"
-            android:layout_marginTop="60px"
-            android:layout_marginRight="160dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginLeft="6px"
-                android:text="Java"
-                android:textColor="#fff"/>
-        </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="100px"
-            android:layout_height="60px"
-            android:focusable="true"
-            android:checkable="true"
-            android:backgroundTint="#939393"
-            android:layout_gravity="center"
-            android:layout_marginTop="60px"
-            android:layout_marginRight="115dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginLeft="6px"
-                android:text="Java"
-                android:textColor="#fff"/>
-        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/item_session_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52px"
+            android:layout_marginTop="10px"
+            android:text="Sesion #"
+            android:textColor="#4E4D4D"
+            android:textAlignment="center" />
 
         <ProgressBar
             android:layout_gravity="end"
@@ -78,7 +51,7 @@
             android:text="50%"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
     
 
 
